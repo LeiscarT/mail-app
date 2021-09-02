@@ -2,11 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MailApp.Views.HomePage">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="add"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <CollectionView ItemsSource="{Binding Mails}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*">
+                        <Grid HeightRequest="70" Grid.Column="0" Grid.ColumnSpan="4" Margin="-10 0 -10 0">
+                        <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HeightRequest="100"></Image>
+                            <StackLayout  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Start">
+                                <Label Text="{Binding From}" TextColor="Black" FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Description}" TextColor="Black" Grid.ColumnSpan="2" LineBreakMode="TailTruncation"></Label>
+                        </StackLayout>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>

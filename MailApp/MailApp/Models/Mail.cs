@@ -6,6 +6,7 @@ namespace MailApp.Models
 {
     public class Mail
     {
+       
         public string Title { get; set; }
         public  string Description { get; set; }
 
@@ -14,5 +15,12 @@ namespace MailApp.Models
         public string From { get; set; }
 
 
+        public Mail(string title, string description, string from)
+        {
+            Title = title;
+            Description = description;
+           
+            From = from;
+        }
     }
 }

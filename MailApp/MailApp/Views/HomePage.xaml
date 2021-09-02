@@ -5,16 +5,15 @@
 
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="add"></ToolbarItem>
+        <ToolbarItem Text="add" Command="{Binding AddCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-
         <CollectionView ItemsSource="{Binding Mails}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*">
-                        <Grid HeightRequest="70" Grid.Column="0" Grid.ColumnSpan="4" Margin="-10 0 -10 0">
-                        <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HeightRequest="100"></Image>
+                        <Grid HeightRequest="70" Grid.Column="0" Grid.ColumnSpan="4" >
+                        <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" ></Image>
                             <StackLayout  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Start">
                                 <Label Text="{Binding From}" TextColor="Black" FontAttributes="Bold"></Label>
                                 <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>

@@ -1,13 +1,18 @@
 ﻿using MailApp.Models;
+using MailApp.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace MailApp.ViewModels
 {
     public class HomeViewModel
     {
-        public IList<Mail> Mails { get; } = new List<Mail>()
+        public ICommand AddCommand { get; }
+        public ObservableCollection<Mail> Mails { get; } = new ObservableCollection<Mail>()
         {
             new Mail("Correo prueba", "Este es un correo prueba a ver si esta funcionando ", "Leiscar" ),
              new Mail("Hola", "Hola", "Leiscar" ),
@@ -17,7 +22,12 @@ namespace MailApp.ViewModels
 
         public HomeViewModel()
         {
+            AddCommand = new Command(AddMail);
+        }
 
+        private void AddMail()
+        {
+            App.Current.MainPage.Navigation.PushAsync(new AddMailPage(Mails));
         }
 
 

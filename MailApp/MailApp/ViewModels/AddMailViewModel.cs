@@ -16,7 +16,9 @@ namespace MailApp.ViewModels
         private string _description;
         public string Description { get { return _description; } set { _description = value; OnPropertyChanged(nameof(Description)); } }
 
-        public DateTime Date { get; set; }
+        private DateTime _date;
+        public DateTime Date { get { return _date; } set { _date = value; OnPropertyChanged(nameof(Date)); } }
+
         private string _from;
         public string From { get { return _from; } set { _from = value; OnPropertyChanged(nameof(From)); } }
 

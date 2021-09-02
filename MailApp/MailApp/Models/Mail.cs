@@ -10,17 +10,19 @@ namespace MailApp.Models
         public string Title { get; set; }
         public  string Description { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public string From { get; set; }
 
 
         public Mail(string title, string description, string from)
         {
+            
             Title = title;
-            Description = description;
-           
+            Description = description; 
             From = from;
+            Date = DateTime.Now.ToString("h:mm tt");
+
         }
     }
 }

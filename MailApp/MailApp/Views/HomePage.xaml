@@ -8,17 +8,20 @@
         <ToolbarItem Text="add" Command="{Binding AddCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding Mails}">
+        <CollectionView ItemsSource="{Binding Mails}" SelectedItem="{Binding SelectedMail}" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+                    
                     <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*">
                         <Grid HeightRequest="70" Grid.Column="0" Grid.ColumnSpan="4" >
-                        <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" ></Image>
+                            <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" ></Image>
                             <StackLayout  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Start">
                                 <Label Text="{Binding From}" TextColor="Black" FontAttributes="Bold"></Label>
                                 <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>
                                 <Label Text="{Binding Description}" TextColor="Black" Grid.ColumnSpan="2" LineBreakMode="TailTruncation"></Label>
-                        </StackLayout>
+                                <Label Text="{Binding Date}" HorizontalOptions="End"></Label>
+
+                            </StackLayout>
                         </Grid>
                     </Grid>
                 </DataTemplate>

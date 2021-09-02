@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MailApp.Views.DetailPage">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*">
+            <StackLayout HorizontalOptions="Center" Grid.Row="0" Grid.Column="0">
+                <Label Text="{Binding Mail.Title}" FontSize="Large" FontAttributes="Bold" TextColor="Black"></Label>
+            </StackLayout>
+            <Image Source="user.png" HorizontalOptions ="Start" VerticalOptions="Start" Grid.Row="1"></Image>
+            <StackLayout Grid.Row="1">
+                <Label Text="{Binding Mail.From}" FontSize="Small"></Label>
+                <Label Text="{Binding Mail.Date}" FontSize="Small"></Label>
+               
+            </StackLayout>
+
+            <Label Text="{Binding Mail.Description}" FontSize="Medium" Grid.Row="2"></Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

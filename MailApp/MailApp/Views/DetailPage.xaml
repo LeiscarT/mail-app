@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MailApp.Views.DetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="archive.png" ></ToolbarItem>
+        <ToolbarItem IconImageSource="delete.png"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*">
             <StackLayout HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                <Label Text="{Binding Mail.Title}" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="40 200 0 0"></Label>
+                <Label Text="{Binding Mail.Title}" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="60 160 0 0"></Label>
             </StackLayout>
             <Image Source="user.png" HorizontalOptions ="Start" HeightRequest="70" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="100 20 0 50"></Image>
             <StackLayout  Margin="110 0 0 135" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
@@ -13,8 +17,8 @@
                 <Label Text="{Binding Mail.Date}" FontSize="Small" TextColor="Black"></Label>
             </StackLayout>
 
-            <Label Text="{Binding Mail.Description}"  FontSize="Subtitle" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black"  Margin="0 0 0 30"></Label>
-            <Image Source="{Binding Mail.Photo}" Margin="50" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            <Label Text="{Binding Mail.Description}"  FontSize="Subtitle" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black"  Margin="20 0 0 50"></Label>
+            <Image Source="{Binding Mail.Photo}" Margin="60 0 0 0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"></Image>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

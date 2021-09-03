@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MailApp.Views.HomePage">
+             x:Class="MailApp.Views.HomePage"
+             x:Name="homePage"
+             >
 
 
     <ContentPage.ToolbarItems>
@@ -11,19 +13,28 @@
         <CollectionView ItemsSource="{Binding Mails}" SelectedItem="{Binding SelectedMail}" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    
-                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*">
+                    <SwipeView HorizontalOptions="Center" VerticalOptions="Center">
+                        <SwipeView.RightItems>
+                            <SwipeItem BackgroundColor="#c71610" IconImageSource="delete.png" 
+                                       Command="{Binding Source={x:Reference homePage}, Path=BindingContext.DeleteCommand}"
+                                       CommandParameter="{Binding}"
+                                       >
+                            </SwipeItem>
+                        </SwipeView.RightItems>
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*" HeightRequest="120">
                         <Grid HeightRequest="70" Grid.Column="0" Grid.ColumnSpan="4" >
+                            
                             <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" ></Image>
                             <StackLayout  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Start">
                                 <Label Text="{Binding From}" TextColor="Black" FontAttributes="Bold"></Label>
                                 <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>
                                 <Label Text="{Binding Description}" TextColor="Black" Grid.ColumnSpan="2" LineBreakMode="TailTruncation"></Label>
-                                <Label Text="{Binding Date}" HorizontalOptions="End"></Label>
+                                <Label Text="{Binding Date}" ></Label>
 
                             </StackLayout>
                         </Grid>
                     </Grid>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

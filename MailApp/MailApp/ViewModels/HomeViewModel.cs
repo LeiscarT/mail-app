@@ -16,6 +16,8 @@ namespace MailApp.ViewModels
         public ICommand AddCommand { get; }
         private ICommand SelectedMailCommand { get; }
 
+        public ICommand DeleteCommand { get; }
+
         private Mail _selectedMail;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,9 +40,9 @@ namespace MailApp.ViewModels
 
         public HomeViewModel()
         {
-            AddCommand = new Command(AddMail);
-           
+            AddCommand = new Command(AddMail);          
             SelectedMailCommand = new Command<Mail>(OnMailSelected);
+            DeleteCommand = new Command<Mail>(DeleteMail);
         }
 
         private void AddMail()
@@ -51,6 +53,12 @@ namespace MailApp.ViewModels
         private async void OnMailSelected(Mail mail)
         {
             await App.Current.MainPage.Navigation.PushAsync(new DetailPage(mail));
+        }
+
+
+        private void DeleteMail(Mail mail)
+        {
+            Mails.Remove(mail);
         }
 
         private void OnPropertyChanged(string properyName)

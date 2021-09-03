@@ -11,7 +11,11 @@ namespace MailApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new HomePage())
+            {
+                BarBackgroundColor = Color.IndianRed
+                
+            };
         }
 
         protected override void OnStart()

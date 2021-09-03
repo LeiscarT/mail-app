@@ -13,8 +13,8 @@ namespace MailApp
 
             MainPage = new NavigationPage(new HomePage())
             {
-                BarBackgroundColor = Color.IndianRed
-                
+                BarBackgroundColor = Color.DarkRed
+
             };
         }
 

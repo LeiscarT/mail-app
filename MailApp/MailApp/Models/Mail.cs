@@ -14,15 +14,16 @@ namespace MailApp.Models
 
         public string From { get; set; }
 
+        public string Photo { get; set; }
 
-        public Mail(string title, string description, string from)
+        public Mail(string title, string description, string from, string photo)
         {
             
             Title = title;
             Description = description; 
             From = from;
             Date = DateTime.Now.ToString("h:mm tt");
-
+            Photo = photo;
         }
     }
 }

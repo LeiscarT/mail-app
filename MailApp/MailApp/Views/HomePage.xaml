@@ -13,9 +13,9 @@
         <CollectionView ItemsSource="{Binding Mails}" SelectedItem="{Binding SelectedMail}" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <SwipeView HorizontalOptions="Center" VerticalOptions="Center">
+                    <SwipeView>
                         <SwipeView.RightItems>
-                            <SwipeItem BackgroundColor="#c71610" IconImageSource="delete.png" 
+                            <SwipeItem  Text="Delete"  BackgroundColor="DarkRed"
                                        Command="{Binding Source={x:Reference homePage}, Path=BindingContext.DeleteCommand}"
                                        CommandParameter="{Binding}"
                                        >
@@ -27,11 +27,12 @@
                             <Image Source="user.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" ></Image>
                             <StackLayout  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Start">
                                 <Label Text="{Binding From}" TextColor="Black" FontAttributes="Bold"></Label>
-                                <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold" LineBreakMode="NoWrap"></Label>
                                 <Label Text="{Binding Description}" TextColor="Black" Grid.ColumnSpan="2" LineBreakMode="TailTruncation"></Label>
                                 <Label Text="{Binding Date}" ></Label>
-
+                                
                             </StackLayout>
+                            
                         </Grid>
                     </Grid>
                     </SwipeView>

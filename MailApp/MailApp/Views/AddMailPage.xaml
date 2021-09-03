@@ -2,12 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MailApp.Views.AddMailPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="link.png" Command="{Binding LoadPhotoCommand}"></ToolbarItem>
+        <ToolbarItem IconImageSource="send.png" Command="{Binding AddCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" >
-            <Entry Text="{Binding Title}" Placeholder="Title"></Entry>
-            <Entry Text="{Binding Description}" Placeholder="Description"></Entry>
-            <Entry Text="{Binding From}" Placeholder="From"></Entry>
-            <Button Text="Add" Command="{Binding AddCommand}"></Button>
+        <StackLayout VerticalOptions="Start" Padding="20">
+            <Entry Text="{Binding Title}" Placeholder="Title" TextColor="Black"></Entry>
+            <Entry Text="{Binding Description}" Placeholder="Description" TextColor="Black"></Entry>
+            <Entry Text="{Binding From}" Placeholder="From" TextColor="Black"></Entry>
+            <Image Source="{Binding PhotoPath}" Margin="50"></Image>
+          
         </StackLayout>
     </ContentPage.Content>
 </ContentPage> 
